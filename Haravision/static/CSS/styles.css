@@ -1,0 +1,111 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('{{ url_for("static", filename="Images/background.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007BFF;
+}
+
+/* Upload page styles */
+.upload-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+.upload-button:active {
+    background-color: #007BFF;
+}
+
+.image-preview {
+    display: none;
+    margin: 20px 0;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Result page styles */
+.result-title {
+    color: #e6131a;
+}
+
+.disease-prediction,
+.severity {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.solution {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.image-container {
+    margin: 20px 0;
+}
+
+.result-details {
+    margin: 20px 0;
+}
+
+/* Detect button styles */
+.detect-button {
+    display: inline-block;
+    background-color: #11f765;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.detect-button:hover {
+    background-color: #00b374;
+}
+
+.detect-button:active {
+    background-color: #00ffb3e2;
+}
+
+/* Image styles */
+.uploaded-image img {
+    max-width: 100%;
+    max-height: 100%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-position: center center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px; /* Adjust max-width as needed */
+            padding: 20px;
+        }
+        .result-details {
+            margin-bottom: 20px;
+        }
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <title>Disease Detection Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Disease Detection Results</h1>
+        
+        <!-- Overall Results -->
+        <div class="overall-results">
+            <h2>Overall Results:</h2>
+            <p>Percentage of Disease Incidence (PI): {{ overall_results.overall_pi }}%</p>
+            <p>Percentage of Disease Index (PDI): {{ overall_results.overall_pdi }}%</p>
+            <p>Recommended Solution: {{ overall_results.overall_solution }}</p>
+            <p>Lifespan: {{ overall_results.lifespan }} days</p>
+        </div>
+        
+        <!-- Individual Results -->
+        {% for result in results %}
+        <div class="result-details">
+            <p class="disease-prediction">Predicted Disease: {{ result.disease_prediction }}</p>
+            {% if result.disease_prediction not in ["Tomato___healthy", "Apple___healthy", "Blueberry___healthy", "Cherry_(including_sour)___healthy", "Corn_(maize)__healthy", "Peach___healthy", "Pepper,bell__healthy", "Raspberry___healthy", "Soybean___healthy", "Strawberry___healthy"] %}
+            <p class="severity">Disease Severity: {{ result.severity }}%</p>
+            {% endif %}
+            <!-- Display image preview -->
+            <img class="uploaded-image" src="{{ url_for('uploaded_file', filename=result.filename) }}" alt="Uploaded Image">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

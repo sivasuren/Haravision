@@ -1,0 +1,32 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>DIGITAL AGRO AI</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">DIGITAL AGRO AI</h1>
+        <p class="sub-title">UPLOAD IMAGES OF LEAVES FOR DISEASE DETECTION</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" accept=".jpg, .jpeg, .png" multiple onchange="previewImages(this);">
+            <label for="fileInput" class="upload-button">Upload Image(s)</label>
+            <div id="imagePreview" class="image-preview"></div>
+            <button type="submit" class="detect-button">Detect Disease</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
